@@ -1,0 +1,590 @@
+\documentclass{TDP019mall}
+\usepackage{graphicx}
+\usepackage{color,soul}
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+
+\lstdefinestyle{mystile}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=true,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystile}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+\graphicspath{{./bilder/}}
+
+
+\newcommand{\version}{Version 1.1}
+\author{Ahmed Sikh , \url{ahmsi881@student.liu.se}\\
+Sayed Ismail Safwat, \url{saysa289@student.liu.se}}
+
+\title{Språkdokumentation}
+\date{\today}
+\rhead{Ahmed Sikh\\
+Sayed Ismail Safwat}
+
+
+\begin{document}
+
+
+\projectpage
+\textbf{Revisionshistorik}
+\begin{table}[!h]
+\begin{tabularx}{\linewidth}{|l|X|l|}
+\hline
+Ver. & Revisionsbeskrivning & Datum \\\hline
+1.0 & Första version av Språkdokumentation & 210510 \\\hline
+1.1 & Andra version av Språkdokumentation & 210522 \\\hline
+\end{tabularx}
+\end{table}
+\tableofcontents
+\newpage
+
+
+
+\newpage
+\section{Inledning}
+Detta är ett projekt på IP-programmet som är skapat under den andra terminen vid Linköpings universitet i kursen TDP019 Projekt: datorspråk.
+ETL (Easy To Learn) har inspirerats för det mesta från Ruby språket. Det har utvecklats för en nybörjare och är skrivet på ett sätt som 
+liknar skriftligt engelska vilket ökar språkets läsbarhet.
+
+\subsection{Syfte}
+Syftet med detta projektet var att visa vilka komponenter ett programmeringsspråk består av och hur ett nytt programmeringsspråk byggs upp med de där komponenterna. 
+
+\subsection{Målgrupp}
+ETL språket skall passa de nybörjare som inte har några förkunskaper inom programmering. Det passar perfekt dem som vill börja lära 
+sig programmering på rätt sätt eftersom det täcker de elementära grunderna i programmering. Språket kommer även passa de lärare som vill lära
+ut programmering till nybörjare eller möjligtvis till en grupp av barn i grundskolan.
+
+\newpage
+\section{Användarhandledning}
+Den här sektionen innehäller instruktioner för att hur man ska komma igång med språket samt lära känna språkkonstruktioner. 
+
+\subsection{Installation}
+För att kunna testa ETL krävs den att senaste versionen av Ruby är installerad.
+
+För att kunna köra språket måste det laddas ner. Språket kan laddas ner via länken: 
+
+\url{https://gitlab.liu.se/ahmsi881/tdp019/-/archive/master/tdp019-master.zip}
+
+Användaren behöver skriva kommandoraden \textbf{\textit{ruby ETL.rb}} för att kunna köra programmet.
+
+Det finns två sätt att köra ETL-språket på:
+\begin{enumerate}
+    \item Att skriva kod genom terminalen, vilket är ett sätt om användaren vill skriva endast en enkel rad kod som inte består av flera saker samtidigt.
+    Detta kan användaren göra i ETL.rb genom: se \textbf{Figur 1}.
+
+    \begin{figure}[h]
+        \caption{Exempel på hur ska det se ut när användaren vill testa språket genom terminalen}
+        \centering
+        \includegraphics[width=\textwidth]{activate_terminal}
+    \end{figure}
+
+    \item Andra sättet är att testa språket i sin helhet vilket innebär att användaren skriver sin kod i en fil som heter \textbf{etl.etl} och där kommer 
+    programmet ta hand om resten. Detta kan användaren göra i ETL.rb genom: se \textbf{Figur 2}.     
+
+    \begin{figure}[h]
+        \caption{Exempel på hur ska det se ut när användaren vill testa språket genom en test fil}
+        \centering
+        \includegraphics[width=\textwidth]{activate_file}
+    \end{figure}
+
+\end{enumerate}  
+
+\newpage
+\subsection{Variabler och Tilldelning}
+Variabler har en dynamisk typning där användaren inte behöver specificera datatypen när den ska deklareras. Tilldelningen i ETL betecknas endast med 
+tilldelningsoperatorn “=”. I ETL går det att tilldela en variabel till jämförelse, strängar och matematiska uttryck.
+
+Det innebär att det ska finnas endast ett namn och dennes värde vilket visas i följande stil:
+\begin{verbatim}
+    x = 5 
+    y = "Hej"
+    z = "hej" plus "då"
+    d = 5 < 10
+\end{verbatim}
+
+
+\subsection{Matematiska Operationer}
+ETL kan utföra alla sedvanliga matematiska beräkningar såsom addition, subtraktion, multiplikation, division, potenser och modolo 
+samt deras rätta prioriteter och associativiteten, det vill säga division och multiplikation ska utföras före addition och subtraktion. 
+Samtliga beräkningar utförs oavsett om de är heltal eller flyttal. Språket stöder även beräkningarna inuti en parentes. 
+
+Exempel:
+
+\begin{verbatim}
+    (5 + 4)
+    1 - 5
+    2 * 1.0
+    5 / 5
+    4 - 7 * (10 / 2)
+    5 ^ 2
+    10 % 3
+\end{verbatim}
+
+Det går även att utföra matematiska beräkningar på variabler som har heltal eller flyttal som värde. 
+
+Exempel:
+\begin{verbatim}
+    x = 5
+    y = x + 2
+    z = x * y
+\end{verbatim}
+
+\subsection{Kommentarer}
+I språket finns det möjligheten att ignorera en rad eller flera rader ifall användaren inte vill att de raderna ska köras. 
+Detta görs genom att skriva \textbf{"<<"} för att ignorera en rad och för att ignorera fler rader måste det skrivas 
+\textbf{"<comment"} i början av raden och \textbf{"<end"} i slutet av raden.
+
+Exempel på flerradskommentar:
+\begin{verbatim}
+    <comment 
+    Detta är en flerradskommentar och allt som skrivs i det här utrymmet kommer ignoreras 
+    och inte köras. 
+    Som det syns här går det att skriva vad som helst. ?!”#€%&123456789
+    Det är jätteviktigt att inte glömma skriva <end i slutet av raden.
+    <end
+\end{verbatim}
+ 
+Exempel på enkelradskommentar:
+\begin{verbatim}
+    << Här ignoreras bara en rad som skrevs med (<<) i början av raden.
+    << Varje rad måste ha << i början för att den ska ignoreras.
+\end{verbatim}
+ 
+Kommenterar används ofta av programmerare som en påminnelse om hur de har kommit fram till den specifika koden.
+
+\subsection{Print}
+I ETL går det att skriva ut datatyper som strängar, tal, logiska uttryck och flera strängar samtidigt förutsatt att de är tilldelade till en variabel innan utskriften. 
+För att skriva ut används ordet \textbf{write} innan variabelnamnet. 
+
+Exempel: 
+ 
+\begin{verbatim}
+    a = “Printing should be easy!”
+    write a
+    ------------------------------
+    b = 3 < 4
+    write b
+    ------------------------------
+    c = 1234
+    write c
+\end{verbatim}
+ 
+Skriver ut följande:
+
+\begin{verbatim}
+    -->> Printing ‘Printing should be easy!’
+    ----------------------------------------
+    -->> Printing ‘true’
+    ----------------------------------------
+    -->> Printing ‘1234’   
+\end{verbatim} 
+
+
+\subsection{Villkor/If-satser}
+Att skriva villkor eller if-satser i ETL språket är inte avancerad. Användaren bör börja med \textbf{“if”} i början av raden, 
+sedan öppna en parentes där användaren kan skriva en eller flera logiska uttryck som kan ge \textbf{falskt} eller \textbf{sant}, efter det stänger 
+användaren parentesen och skriver därefter ordet \textbf{“then”}. Då börjar användaren på en ny rad för att skriva den satsen eller de satserna 
+som ska utföras ifall de logiska uttrycken som finns inuti parentesen ska returnera \textbf{sant}. I slutet av en if-sats ska 
+användaren skriva \textbf{“endif”} för att säga att här slutar villkoret.
+ 
+Exempel på en if-sats: 
+ 
+\begin{verbatim}
+    x = 7
+    y = 8
+    if (x > 6 and y == 8) then
+    write "if-sats fungerar"
+    endif
+\end{verbatim}
+
+Skriver ut följande:
+\begin{verbatim}
+    -->> Printing ‘if-sats fungerar’
+\end{verbatim}
+
+I ETL kan användaren skriva en elseif-sats som följer av en if-sats. Detta kan användaren göra genom att skriva \textbf{"elseif"} i 
+en ny rad. Det betyder att om de logiska uttrycken som finns inuti \textbf{if-sats-parentes} returnerar \textbf{falsk}, 
+så kommer \textbf{elseif-satsen} nu utföra den eller de satserna som finns efter ordet \textbf{“elseif”}. 
+
+\newpage
+Exempel på en elseif-sats: 
+
+\begin{verbatim}
+    j = 2
+    if (j != 2) then
+    write "if-sats fungerar"
+    elseif (j == 2) then
+    write "elseif-sats fungerar"
+    otherwise
+    write "otherwise fungerar"
+    endif
+\end{verbatim}
+
+Skriver ut följande:
+\begin{verbatim}
+    -->> Printing 'elseif-sats fungerar' 
+\end{verbatim}
+
+I ETL kan också användaren skriva en \textbf{else-sats} som följs av antingen en \textbf{if-sats} eller \textbf{elseif-sats}. 
+Detta kan användaren göra genom att skriva \textbf{“otherwise”} i 
+en ny rad. Det betyder att om de logiska uttrycken som finns inuti \textbf{if-sats} eller \textbf{elseif-sats-parentesen} returnerar \textbf{falsk}, 
+så kommer \textbf{else-satsen} nu utföra den eller 
+de satser som finns efter ordet \textbf{“otherwise”}. I slutet kommer användaren också att göra samma sak här, det vill säga att skriva \textbf{“endif”} 
+för att visa att här slutar villkoret.
+
+Exempel på en if-sats som följer av en else-sats: 
+\begin{verbatim}
+    x = 7
+    y = 8
+    if (x less than 6 or y equal 9) then
+    write "if-sats fungerar"
+    otherwise
+    write "otherwise-sats fungerar"
+    endif
+\end{verbatim} 
+
+Skriver ut följande:
+\begin{verbatim}
+    -->> Printing ‘otherwise-sats fungerar’
+\end{verbatim}
+
+I ETL kan användaren skriva logiska operator i tecken.
+
+Exempel 1: 
+
+\textbf{<}, \textbf{>}, \textbf{<=}, \textbf{>=}, \textbf{!=} och \textbf{==} 
+
+eller att skriva logiska operator i ord, exempelvis:
+
+\textbf{less than}, \textbf{greater than}, \textbf{less than or equal to}, \textbf{greater than or equal to}, \textbf{not equal to} och \textbf{equal} 
+\break 
+
+ETL kan även hantera \textbf{or}, \textbf{and} och \textbf{not}, se exempel 1.
+
+\newpage
+\subsection{Iteration}
+Det finns en sorts loop i ETL-språket som kallas för en while-loop där användaren har möjlighet att iterera igenom exempelvis ett tal tills det villkoret i loopen har uppfyllts. 
+För att skriva en while-loop skrivs först ordet \textbf{while} sedan villkoret inuti en parentes. Efter det går det att skriva den satsen eller de satserna när villkoret som finns inuti parentes uppfylls, därefter för att avsluta while-loopen måste ordet \textbf{endwhile} skrivas i en ny rad. 
+Exempel: 
+\begin{verbatim}
+    y = 1
+    while ( y < 4)
+    write "while-loop fungerar"
+    y = y + 1
+    endwhile
+\end{verbatim}
+ 
+Skriver ut följande:
+\begin{verbatim}
+    -->> Printing 'while-loop fungerar'
+    -->> Printing 'while-loop fungerar'
+    -->> Printing 'while-loop fungerar'
+\end{verbatim}
+ 
+I exemplet ovan, skrevs \textbf{‘while-loop fungerar’} ut samt lägger till en etta till variabeln \textbf{y} så länge den 
+uppfyller villkoret \textbf{(y < 4)}. Detta innebär att satserna kommer att utföras tills variabeln \textbf{y} är mindre än fyra. 
+ 
+I ETL går det även att avbryta while-loopen genom att skriva \textbf{stop} efter de satserna som ska utföras för första gången. 
+Detta gör while-loopen utföra de satserna endast en gång, därefter kommer det avbrytas.
+
+Exempel: 
+\begin{verbatim}
+    y = 1
+    while ( y < 4)
+    write "while-loop fungerar endast en gång"
+    y = y + 1
+    stop
+    endwhile
+\end{verbatim}
+ 
+Skriver ut följande:
+\begin{verbatim}
+    -->> Printing 'while-loop fungerar endast en gång'
+\end{verbatim}
+
+
+\subsection{Funktioner}
+ETL-språket har två sorts funktioner:
+\begin{enumerate}
+\item Funktioner utan parametrar:
+
+För att definiera en funktion utan parameter i ETL behöver användaren skriva \textbf{define} och sedan sätta ett namn på den funktionen. 
+Därefter måste användaren skriva töm parentes så att kodraden kommer att se ut så här: \textbf{define name()} i slutändan.
+ 
+Efter definitionen av funktionen kan användaren skriva en eller flera satser inuti funktionskroppen. Funktionskroppen avslutas med 
+ordet \textbf{return} beroende på vad användaren vill returnera.
+ 
+I slutet bör alltid användaren skriva ordet \textbf{enddef} för att avsluta funktionskroppen. 
+ 
+Användaren kan anropa funktionen genom att skriva exempelvis \textbf{write name()} på en ny rad, där kommer terminalen skriva 
+ut det som funktionen returnerar.  
+
+\newpage
+Exempel på funktioner utan parameter:
+\begin{verbatim}
+    define add()
+    a = 4
+    b = 5
+    c = a + b
+    return c
+    enddef
+
+    write add()
+\end{verbatim}
+ 
+Skriver ut följande:
+\begin{verbatim}
+    -->> Function 'add' returning '9'
+\end{verbatim}
+
+ 
+\item Funktioner med parametrar:
+
+För att definiera en funktion med parametrar i ETL behöver användaren skriva \textbf{define} sedan sätta ett namn på den funktionen. 
+Därefter måste användaren öppna en parentes för att skriva parameters namnet. Funktionen kan ta flera parametrar som har kommatecken emellan. 
+Kodraden kommer att se ut så här: \textbf{define name(a ,b)} i slutändan.
+ 
+Efter definitionen av funktionen kan användaren skriva en eller flera satser inuti funktionskroppen. Funktionskroppen avslutas med 
+ordet \textbf{return} beroende på vad användaren vill returnera.
+ 
+I slutet bör alltid användaren skriva ordet \textbf{enddef} för att avsluta funktionskroppen. 
+ 
+Användaren kan anropa funktionen med parametrar genom att skriva exempelvis \textbf{write name(2, 5)} på en ny rad, där parametrarna 
+som finns inuti parentesen ska ta sina värden. I slutet kommer terminalen skriva ut det som funktionen returnerar.  
+ 
+ 
+Exempel på funktioner med parameter:
+\begin{verbatim}
+    define add(a, b)
+    s = a + b
+    return s
+    enddef
+
+    write add(25, 75)
+\end{verbatim}
+Skriver ut följande:
+\begin{verbatim}
+    -->> Function 'add' returning '100'
+\end{verbatim}
+\end{enumerate}
+
+
+\newpage
+\subsection{Multiple Strings}
+ETL har en konstruktion som heter \textit{Multiple Strings}. Denna finns för att låta användaren addera antingen två eller flera variabler som innehåller strängar 
+(som i Exempel 1) eller två eller flera strängar (som i Exempel 2) med varandra genom att skriva ordet \textbf{plus} mellan de variablerna/strängarna som ska adderas.
+
+Exempel 1: 
+\begin{verbatim}
+    x = “ETL” plus “ är enkelt.”
+    write x
+\end{verbatim}
+Skriver ut följande:
+\begin{verbatim}
+    -->> Printing 'ETL är enkelt.'
+\end{verbatim}
+
+Exempel 2:
+
+\begin{verbatim}
+    y = "ETL"
+    z = " är"
+    w = " lätt att lära sig!"
+    write y plus z plus w
+\end{verbatim}
+ 
+Skriver ut följande:
+\begin{verbatim}
+    -->> Printing 'ETL är lätt att lära sig!'
+\end{verbatim}
+
+
+\newpage
+\section{Systemdokumentation}
+ETL språket uppbyggt på \textbf{rdparse.rb} som är tagen från båda TDP007 och TDP019 kurshemsidan. \textbf{rdparse.rb} hjälper med att göra den lexikaliska 
+analysen samt själva parsning delen på den koden som användaren skriver. 
+
+\textbf{ETL.rb} och \textbf{classes.rb} filerna är skapade av oss senare under projektarbetet. Filen classes.rb består av alla noder 
+som används i match reglerna i ETL.rb där alla reglerna som bestämmer syntaxen är skriven i.  
+
+\subsection{Lexikaliska Analys}
+I lexikaliska analysen skapas de olika tokens som språket har i \textbf{ETL.rb}. Tokens består av reguljära uttryck(RegEx) som är en följd av 
+flera tecken som matchar en viss mönster. 
+
+I slutet kommer alla tokens skickas vidare till parsen. 
+
+Här kommer alla tokens i samma ordning som de är på \textbf{ETL.rb} filen:
+
+\begin{enumerate}
+
+\item \textbf{Tokens som inte ska parsas och kommer ignoreras:}
+\begin{itemize}
+
+\item Matchar och ignorerar flerradskommentarer.
+\begin{verbatim}
+    token(/^(<comment[\w\W\s]*<end)/)
+\end{verbatim}
+\item Matchar och ignorerar enkelradskommentar
+\begin{verbatim}
+    token(/(<<.+$)/)
+\end{verbatim}
+\item Matchar och ignorerar alla mellanrum
+\begin{verbatim}
+    token(/\s+/)
+\end{verbatim}
+\end{itemize}
+
+\item \textbf{Tokens som ska parsas:}
+\begin{itemize}
+\item Matchar alla flyttal och returneras som "Float"
+\begin{verbatim}
+    token(/(\d+[.]\d+)/) { |m| m.to_f }
+\end{verbatim}
+\item Matchar alla heltal och returneras som "Integer"
+\begin{verbatim}
+    token(/\d+/) { |m| m.to_i }
+\end{verbatim}
+\item Matchar strängar inom enkelcitattecken
+\begin{verbatim}
+    token(/'[^\']*'/) { |m| m } 
+\end{verbatim}
+\item Matchar strängar inom dubbeltcitattecken
+\begin{verbatim}
+    token(/"[^\"]*"/) { |m| m }
+\end{verbatim}
+\item Matchar namn på variabler
+\begin{verbatim}
+    token(/[a-z]+[a-z0-9_]*/) { |m| m }
+\end{verbatim}
+\item Matchar allt annat(enkla käraktarer)
+\begin{verbatim}
+    token(/./) { |m| m } 
+\end{verbatim}
+\end{itemize}
+\end{enumerate}
+
+\newpage
+\subsection{Parsning}
+Efter att alla tokens har skickats från lexikaliska delen för parsning, och matchats de reglerna som beskriven i vår 
+BNF-grammatiken då börjar parsern gör sitt jobb som är att hitta det mönstret från det koden som användaren skriver och bygga abstrakta 
+syntaxträdet i slutet. Parsern körs rekursivt och går efter BNF-grammatiken. 
+
+Varje konstruktion i ETL språket har sin egen klass vilket varje klass har en \textbf{eval()} funktion som körs när programmet använder
+ den relevanta klassen och dennes eval funktion. 
+ 
+Exempel: Se \textbf{Figur 3}.
+
+\begin{figure}[h]
+    \caption{Här parsas en konstruktion där flera strängar adderas med varandra med hjälp av klass objektet som skapas av klassen \textbf{Plus\_str}.\\ \\}
+    \centering
+    \includegraphics[width=110mm]{tree}
+\end{figure}
+
+\newpage
+\subsection{Kodstandard}
+Språket använder sig inte av något indentering vilket innebär att alla mellanrum kommer tas bort från koden som användaren skriver. 
+
+Vissa kodstandard som \textbf{ETL} har:
+\begin{itemize}
+\item I slutet av varje \textbf{if-sats} måste användaren avstänga kroppen genom att skriva \textbf{endif}.
+\item Efter varje if-statement måste användaren skriva \textbf{then}.
+\item I slutet av varje \textbf{while-loop} måste användaren avstänga kroppen genom att skriva \textbf{endwhile}.
+\item I slutet av varje \textbf{funktion} måste användaren avstänga kroppen genom att skriva \textbf{enddef}.
+\item Booleska uttryck kan skrivas antingen i numeriskt eller skriftligt sätt. Exempel: \textbf{<} eller \textbf{less than} osv.
+\end{itemize}
+
+\newpage
+\section{Reflektion}
+I denna kursen var vi ombedd att skapa ett nytt programmeringsspråk och med våra kunskaper från tidigare kursen kändes det mycket svårt
+ att tänka på hur och varifrån ska man börja med att skriva eller implementera. Det var lite svårt i början, eftersom man vet inte om man
+  gör rätt eller fel osv, kanske för att man inte kunde testa allt man skriver precis som vi gjorde hittills i tidigare kurser där man kunde
+   testa allt man vill under arbetet. Dock efter handledningstillfällen kom vi igång med vilket sort av språk vi kommer skapa då vi fick
+    en bättre bild och kunde ta de första stegen. Att skriva all tokens och all BNF-grammatiken var relativt enkelt då kunde vi skriva dem
+     klart mycket snabbare än vi trodde. Däremot var vi på fel spår och hade gått för långt med att skriva sakerna som inte var relevanta
+      i den tidpunkten. Detta märkte vi tack vare vår handledare under en av handledningstillfällen som rekommenderade att vi borde ta saker
+       ett steg i taget för att testa och se om de fungerar eller inte. Exempelvis man kan börja med matematik och operationer och sedan kan
+        man börja med tilldelning och variabler och så vidare. 
+
+Under projektet var vi tvungna att ändra grammatiken ständigt eftersom vi ibland inte fick förväntade resultat så grammatiken förändrades till 
+den bättre versionen hela tiden tills vi var klara. 
+
+
+Ett av de problemen, konstig nog, vi hade under arbetet var att minustecknet inte fungerade som det ska, dvs det fungerade bara när man skriver 
+(5 - 2) med mellanrum. Vi lyckades lösa problemet genom att ändra på vår tokens så att de matchar bara tal oavsett de är positiva eller negativa, 
+sedan ändrade vi på Constant klassen så vi lade till en if-sats som säger om det är negativ så ska den siffran multipliceras med (-1). Innan hade vi 
+matchgrupp bara för Float och Integer i atom matchregel så vi behövde lägga till också de Float och Integer som behövs för negativa tal.
+
+
+En annan sak som fick mer tid av oss var booleska uttryck hanteringen. Detta var viktigt för oss då vi behövde den för att gå vidare med att testa 
+resten av programmen där ett boolesk uttryck används. Senare märkte vi att vi hade ingen matchgrupp för \textbf{'true'} och \textbf{'false'} för att känna till om något 
+värde är falskt eller sant. Detta fick vi lösa genom att lägga till matchgrupp till \textbf{'false'} och \textbf{'true'} som också använder sig av klassen \textbf{Constant}. 
+Då fick vi \textbf{or} och \textbf{and} fungera som det ska, men inte \textbf{not} eftersom \textbf{not} använde samma klass som \textbf{or/and} och det var inte så bra eftersom
+\textbf{or/and} klassen behöver ta in 3 arguments/parametrar men \textbf{not} behöver bara ha två, så vi behövde skapa klassen \textbf{Not} som kommer bara hantera det fallet
+ för programmet.
+
+
+Ett annat stort problem vi stött på under projektet var ordningen på \textbf{statement} matchgrupperna samt de andra matchgrupperna i BNF. Där vi började få samma
+ felmeddelande för flera saker vi skapade. Detta tog lång tid för att hitta vart problemet är, där vi märkte i slutet att det ligger på ordningen där minst 
+ generella ska komma först i ordningen och mest generella ska vara i slutet. Det handlar mest om erfarenhet man får under projektarbetet, skulle vi vara medvetna 
+ på att minst generella ska vara först i ordningen så skulle det vara snabbt att fixa problemet eller kanske vi inte skulle hamna på detta problemet alls. 
+
+
+En av de svåraste delarna i språket var att skapa scopehanteringen vilket var på grund av att vi inte var säkra om det behövs i språket eller ej. Efter handledarens 
+förklaring om scopehantering fick vi veta vad exakt scopehantering är och vilka saker man måste tänka för att implementera den. Vi fick veta att de är massa våningar 
+för exempel våning 0 är det globala scopet och våning 1 är en lokal scope till exempel en funktion, där varje scope kommer ha sina egna variablar. 
+
+
+Om vi jämför språkspecifikations dokumentet med det slutliga arbetet så kan vi säga att vi har ändrat vår tanke med scopehanteringen, eftersom vi tycker att det 
+är lättare för nybörjare att ha dynamisk istället för statisk scopehantering. 
+
+
+Avslutningsvis fick vi mycket stora erfarenheter som vi inte behärskade innan projektets gång och vi tycker också att vi har nått målet som var att förstå 
+hur ett programmeringsspråk är uppbyggt samt vilka verktyg det behövs för att skapa ett eget programmeringsspråk. 
+
+
+        
+\newpage
+\section{Bilagor}
+
+\subsection{BNF Grammatik}
+\lstinputlisting[language=Ruby]{ETL(som lämnas in)/BNF.txt}
+
+\newpage
+\subsection{ETL.rb}
+\lstinputlisting[language=Ruby]{ETL(som lämnas in)/ETL.rb}
+
+\newpage
+\subsection{classes.rb}
+\lstinputlisting[language=Ruby]{ETL(som lämnas in)/classes.rb}
+
+\newpage
+\subsection{etl.etl}
+\lstinputlisting[language=Ruby]{ETL(som lämnas in)/etl.etl}
+
+\end{document}
